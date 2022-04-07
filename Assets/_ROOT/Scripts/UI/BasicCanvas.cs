@@ -2,6 +2,7 @@ namespace Runner.UI
 {
     using System.Collections.Generic;
     using UnityEngine;
+    using Zenject;
 
     public interface IWindowCreator
     {
@@ -11,12 +12,14 @@ namespace Runner.UI
 
     public class BasicCanvas : MonoBehaviour, IWindowCreator
     {
+        [Inject]
+        public DiContainer Container { get; set; }
+        
         private List<Window> windows = new List<Window>();
 
         public void CreateWindow(Window window)
         {
-            Debug.Log($"<color=red> => CreateWindow </color>");
-            var newWindow = Instantiate(window, transform);
+            var newWindow = Container.InstantiatePrefabForComponent<Window>(window, transform);
             windows.Add(newWindow);
         }
 

@@ -28,6 +28,7 @@
         private void DeclareSignals()
         {
             Container.DeclareSignal<GameLoaded>();
+            Container.DeclareSignal<LevelStarted>();
         }
 
         private void InstallSettings()
