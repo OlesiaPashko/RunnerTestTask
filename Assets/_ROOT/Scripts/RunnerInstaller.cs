@@ -2,9 +2,11 @@
 {
     using GameFlow;
     using GameFlow.Commands;
+    using Player;
     using Settings;
     using UI;
     using Zenject;
+
     public class RunnerInstaller : MonoInstaller
     {
         private const string SettingsPath = "Settings";
@@ -13,11 +15,14 @@
             SignalBusInstaller.Install(Container);
             Container.BindInterfacesAndSelfTo<CreateHomeWindowCommand>().AsCached();
             Container.Bind<IWindowCreator>().FromComponentInHierarchy().AsSingle();
+            Container.BindInterfacesAndSelfTo<PlayerFactory>().AsSingle();
+
             InstallSettings();
             DeclareSignals();
             
             SetUpFlow();
         }
+        
 
         private void SetUpFlow()
         {
@@ -38,6 +43,10 @@
                 .NonLazy();
             
             Container.Bind<WindowPrefabSettings>().FromScriptableObjectResource(SettingsPath)
+                .AsSingle()
+                .NonLazy();
+            
+            Container.Bind<PlayerSettings>().FromScriptableObjectResource(SettingsPath)
                 .AsSingle()
                 .NonLazy();
         }
