@@ -9,9 +9,12 @@ namespace Runner.Area
         [Inject]
         public AreaPrefabSettings AreaPrefabSettings { get; set; }
 
+        [Inject]
+        public DiContainer DiContainer { get; set; }
+
         private void Start()
         {
-            Instantiate(AreaPrefabSettings.Area, transform);
+            DiContainer.InstantiatePrefabForComponent<Area>(AreaPrefabSettings.Area, transform);
         }
     }
 }
