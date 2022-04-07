@@ -34,6 +34,7 @@
         {
             Container.DeclareSignal<GameLoaded>();
             Container.DeclareSignal<LevelStarted>();
+            Container.DeclareSignal<LevelFailed>();
         }
 
         private void InstallSettings()
@@ -47,6 +48,10 @@
                 .NonLazy();
             
             Container.Bind<PlayerSettings>().FromScriptableObjectResource(SettingsPath)
+                .AsSingle()
+                .NonLazy();
+            
+            Container.Bind<MovementSettings>().FromScriptableObjectResource(SettingsPath)
                 .AsSingle()
                 .NonLazy();
         }
