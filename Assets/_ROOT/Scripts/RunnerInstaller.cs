@@ -3,6 +3,7 @@
     using GameFlow;
     using GameFlow.Commands;
     using Player;
+    using Player.Movement;
     using Settings;
     using UI;
     using Zenject;
@@ -15,6 +16,7 @@
             SignalBusInstaller.Install(Container);
             Container.BindInterfacesAndSelfTo<CreateHomeWindowCommand>().AsCached();
             Container.Bind<IWindowCreator>().FromComponentInHierarchy().AsSingle();
+            Container.BindInterfacesAndSelfTo<InputProvider>().FromComponentInHierarchy().AsSingle();
             Container.BindInterfacesAndSelfTo<PlayerFactory>().AsSingle();
 
             InstallSettings();

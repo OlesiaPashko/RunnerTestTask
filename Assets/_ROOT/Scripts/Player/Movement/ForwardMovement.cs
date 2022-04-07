@@ -13,6 +13,9 @@ namespace Runner.Player.Movement
         [Inject]
         public SignalBus SignalBus { get; set; }
 
+        [SerializeField] 
+        private Rigidbody rb;
+
         private float speed;
 
         private void Start()
@@ -26,7 +29,7 @@ namespace Runner.Player.Movement
             speed = MovementSettings.startSpeed;
         }
 
-        private void Update()
+        private void FixedUpdate()
         {
             TryMove();
         }
@@ -43,7 +46,8 @@ namespace Runner.Player.Movement
 
         private void Move()
         {
-            transform.position += new Vector3(speed, 0);
+            var newPosition = transform.position + new Vector3(speed, 0);
+            rb.MovePosition(newPosition);
             var acceleration = MovementSettings.acceleration;
             speed += acceleration;
         }
