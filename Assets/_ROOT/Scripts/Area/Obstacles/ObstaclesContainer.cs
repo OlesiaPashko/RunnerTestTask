@@ -16,6 +16,7 @@ namespace Runner.Area.Obstacles
         public void CreateOneObstacle()
         {
             var obstacle = ObstacleFactory.Create(transform);
+            obstacle.transform.position = new Vector3(3, 0);
             obstacles.Add(obstacle);
         }
     }

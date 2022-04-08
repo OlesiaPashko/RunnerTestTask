@@ -44,7 +44,13 @@
             Container.BindSignal<GameLoaded>().ToMethod<CreateHomeWindowCommand>(x=>x.Execute)
                 .FromResolve();
             
+            Container.BindSignal<LevelRestarted>().ToMethod<CreateHomeWindowCommand>(x=>x.Execute)
+                .FromResolve();
+            
             Container.BindSignal<LevelStarted>().ToMethod<CreateGameWindowCommand>(x=>x.Execute)
+                .FromResolve();
+            
+            Container.BindSignal<LevelFailed>().ToMethod<CreateLevelFailedWindowCommand>(x=>x.Execute)
                 .FromResolve();
         }
 
@@ -53,6 +59,7 @@
             Container.DeclareSignal<GameLoaded>();
             Container.DeclareSignal<LevelStarted>();
             Container.DeclareSignal<LevelFailed>();
+            Container.DeclareSignal<LevelRestarted>();
         }
 
         private void InstallSettings()

@@ -1,5 +1,7 @@
 namespace Runner.Area
 {
+    using System;
+    using GameFlow;
     using Obstacles;
     using Player;
     using Settings;
@@ -8,6 +10,9 @@ namespace Runner.Area
 
     public class AreaCreator : MonoBehaviour
     {
+        [Inject]
+        public SignalBus SignalBus { get; set; }
+        
         [Inject]
         public AreaPrefabSettings AreaPrefabSettings { get; set; }
 
@@ -27,6 +32,18 @@ namespace Runner.Area
 
         private void Start()
         {
+            Create();
+            SignalBus.Subscribe<LevelRestarted>(RecreateArea);
+        }
+
+        private void RecreateArea()
+        {
+            Destroy(currentArea.gameObject);
+            Create();
+        }
+
+        private void Create()
+        {
             CreateArea();
             CreatePlayer();
             currentArea.ObstaclesContainer.CreateOneObstacle();
@@ -44,7 +61,10 @@ namespace Runner.Area
             var player = PlayerFactory.Create(playerParent);
             PlayerInstanceProvider.Player = player;
         }
-        
-        
+
+        private void OnDestroy()
+        {
+            SignalBus.TryUnsubscribe<LevelRestarted>(RecreateArea);
+        }
     }
 }

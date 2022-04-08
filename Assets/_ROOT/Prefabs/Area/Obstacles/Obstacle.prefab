@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 1258449257308401153}
   - component: {fileID: 1258449257308401158}
   - component: {fileID: 1258449257308401159}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Collider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -67,7 +67,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1258449257318905659}
   - component: {fileID: 1258449257318905656}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -148,7 +148,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1258449258913412355}
   - component: {fileID: 1258449258913412354}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Obstacle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
