@@ -44,7 +44,7 @@ namespace Runner.Player.Movement
         {
             if (lastClickTime <= 0)
             {
-                lastClickTime = Time.time;
+                HandleFirstClick();
                 return;
             }
 
@@ -57,6 +57,12 @@ namespace Runner.Player.Movement
                 TryChangeState(MovementState.Bottom);
             }
             lastClickTime = Time.time;
+        }
+
+        private void HandleFirstClick()
+        {
+            lastClickTime = Time.time;
+            verticalMovement.Jump();
         }
 
         private void CheckDoubleClick()
