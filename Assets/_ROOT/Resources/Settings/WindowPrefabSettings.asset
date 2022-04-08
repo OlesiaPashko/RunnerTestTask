@@ -14,3 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   HomeWindow: {fileID: -1618765135448174320, guid: 8f37c5cd296a9a54bbdb937b5ea6ff5d,
     type: 3}
+  GameWindow: {fileID: 4983301504487457694, guid: 5e4c81486dd95f14d9f09285a2ffd3e0,
+    type: 3}
+  LevelFailedWindow: {fileID: 1370517874356521276, guid: 3b3d105651de2d74db44dbbf8bd68373,
+    type: 3}

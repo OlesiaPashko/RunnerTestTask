@@ -16,6 +16,9 @@ namespace Runner.Area
         [Inject]
         public PlayerFactory PlayerFactory { get; set; }
 
+        [Inject]
+        public IPlayerInstanceProvider PlayerInstanceProvider { get; set; }
+
         private Area currentArea;
 
         private void Start()
@@ -33,7 +36,8 @@ namespace Runner.Area
         private void CreatePlayer()
         {
             var playerParent = currentArea.PlayerPlaceholder.transform;
-            PlayerFactory.Create(playerParent);
+            var player = PlayerFactory.Create(playerParent);
+            PlayerInstanceProvider.Player = player;
         }
     }
 }

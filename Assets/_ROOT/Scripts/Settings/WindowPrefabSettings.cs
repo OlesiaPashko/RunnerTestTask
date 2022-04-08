@@ -7,5 +7,7 @@ namespace Runner.Settings
     public class WindowPrefabSettings : ScriptableObject
     {
         public HomeWindow HomeWindow;
+        public GameWindow GameWindow;
+        public LevelFailedWindow LevelFailedWindow;
     }
 }
