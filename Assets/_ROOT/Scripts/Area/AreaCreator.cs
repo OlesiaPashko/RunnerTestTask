@@ -23,9 +23,6 @@ namespace Runner.Area
         public PlayerFactory PlayerFactory { get; set; }
         
         [Inject]
-        public ObstacleFactory ObstacleFactory { get; set; }
-
-        [Inject]
         public IPlayerInstanceProvider PlayerInstanceProvider { get; set; }
 
         private Area currentArea;
@@ -46,7 +43,7 @@ namespace Runner.Area
         {
             CreateArea();
             CreatePlayer();
-            currentArea.ObstaclesContainer.CreateOneObstacle();
+            currentArea.ObstaclesContainer.CreateObstacles();
         }
 
         private void CreateArea()

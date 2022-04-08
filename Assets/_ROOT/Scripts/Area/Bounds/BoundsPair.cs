@@ -7,6 +7,7 @@ namespace Runner.Area
     public class BoundsPair : MonoBehaviour
     {
         public event Action<BoundsPair> endAchieved; 
+        public SegmentBounds SegmentBounds { get; private set; }
         
         [SerializeField] 
         private GroundBound groundBound;
@@ -16,6 +17,11 @@ namespace Runner.Area
         
         [SerializeField] 
         private CollisionSource collisionSource;
+
+        private void Awake()
+        {
+            SegmentBounds = new SegmentBounds(cellBound.TopLeftPoint, groundBound.BottomRightPoint);
+        }
 
         private void Start()
         {
@@ -30,6 +36,19 @@ namespace Runner.Area
         private void OnDestroy()
         {
             collisionSource.onCollisionEnter -= OnCollision;
+            SegmentBounds = new SegmentBounds(cellBound.TopLeftPoint, groundBound.BottomRightPoint);
+        }
+    }
+
+    public struct SegmentBounds
+    {
+        public Vector3 TopLeftSegmentPoint { get;}
+        public Vector3 BottomRightSegmentPoint { get; }
+
+        public SegmentBounds(Vector3 topLeftSegmentPoint, Vector3 bottomRightSegmentPoint)
+        {
+            TopLeftSegmentPoint = topLeftSegmentPoint;
+            BottomRightSegmentPoint = bottomRightSegmentPoint;
         }
     }
 }

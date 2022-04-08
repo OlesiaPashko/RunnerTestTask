@@ -1,17 +1,19 @@
 namespace Runner.Area.Obstacles
 {
     using UnityEngine;
-
-    public interface IObstaclePositionProvider
-    {
-        Vector3 Get();
-    }
     
-    public class ObstaclePositionProvider : IObstaclePositionProvider
+    public class ObstaclePositionProvider : MonoBehaviour
     {
+        [SerializeField] 
+        private BoundsPair boundsPair;
         public Vector3 Get()
         {
-            return new Vector3(10, 10, 10);
+            var bounds = boundsPair.SegmentBounds;
+            var y = Random.Range(bounds.BottomRightSegmentPoint.y, bounds.TopLeftSegmentPoint.y);
+            var x = Random.Range(bounds.BottomRightSegmentPoint.x, bounds.TopLeftSegmentPoint.x);
+            return new Vector3(x, y);
         }
+        
+        
     }
 }

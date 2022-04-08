@@ -30,7 +30,6 @@ Transform:
   m_Children:
   - {fileID: 634496652679666623}
   - {fileID: 5708849467181445088}
-  - {fileID: 5416674309640955180}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -58,6 +57,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5416674309640955180}
   - component: {fileID: 8202672661040691057}
+  - component: {fileID: 4722072672509877385}
   m_Layer: 0
   m_Name: ObstaclesContainer
   m_TagString: Untagged
@@ -72,12 +72,12 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4086569446821401491}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.28302452, y: 0.31568605, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 7889916315263286331}
-  m_RootOrder: 2
+  m_Father: {fileID: 8540479373527576862}
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &8202672661040691057
 MonoBehaviour:
@@ -91,7 +91,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 32701f7e5df342ea8de57a6db9736c50, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  obstacles: []
+  obstaclePositionProvider: {fileID: 4722072672509877385}
+--- !u!114 &4722072672509877385
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4086569446821401491}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 222c9538e41b4ba38cccb1250cbd8b3c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  boundsPair: {fileID: 8540479373527576857}
 --- !u!1 &5056547666641013419
 GameObject:
   m_ObjectHideFlags: 0

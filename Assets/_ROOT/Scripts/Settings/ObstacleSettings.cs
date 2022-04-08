@@ -8,5 +8,8 @@ namespace Runner.Settings
     public class ObstacleSettings : ScriptableObject
     {
         public List<Obstacle> Obstacles;
+        
+        [Range(0, 10)]
+        public int obstaclesPerSegment = 5;
     }
 }

@@ -4,6 +4,9 @@ namespace Runner.Area
 
     public class LevelBound : MonoBehaviour
     {
+        [SerializeField] 
+        protected MeshRenderer meshRenderer;
+
         private Camera camera;
         private void Awake()
         {
