@@ -19,7 +19,6 @@
         {
             SignalBusInstaller.Install(Container);
             Container.Bind<IWindowCreator>().FromComponentInHierarchy().AsSingle();
-            Container.Bind<CoroutineProvider>().FromComponentInHierarchy().AsSingle();
             Container.BindInterfacesAndSelfTo<InputProvider>().FromComponentInHierarchy().AsSingle();
             Container.BindInterfacesAndSelfTo<PlayerFactory>().AsSingle();
             Container.BindInterfacesAndSelfTo<ObstacleFactory>().AsSingle();
