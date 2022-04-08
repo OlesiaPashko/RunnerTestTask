@@ -1,4 +1,4 @@
-namespace Runner.Player.Movement
+namespace Runner.Player.Input
 {
     using System;
     using UnityEngine;
@@ -14,7 +14,7 @@ namespace Runner.Player.Movement
 
         private void Update()
         {
-            if (Input.GetAxisRaw("Vertical") > 0)
+            if (Input.GetKeyUp(KeyCode.W) || Input.GetKeyUp(KeyCode.UpArrow))
             {
                 OnButtonClicked?.Invoke();
             }

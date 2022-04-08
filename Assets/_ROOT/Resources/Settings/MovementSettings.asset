@@ -13,4 +13,5 @@ MonoBehaviour:
   m_Name: MovementSettings
   m_EditorClassIdentifier: 
   startSpeed: 0.03
-  acceleration: 0.001
+  jumpForce: 8
+  clicksMaxGap: 0.3

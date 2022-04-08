@@ -6,10 +6,10 @@ namespace Runner.Settings
     [CreateAssetMenu(fileName = nameof(MovementSettings), menuName = "Runner/MovementSettings")]
     public class MovementSettings : ScriptableObject
     {
-        [Range(0, 10f)] 
+        [Range(0, 0.5f)] 
         public float startSpeed = 1f;
         
-        [FormerlySerializedAs("jumpHeight")] [Range(0, 1)] 
+        [FormerlySerializedAs("jumpHeight")] [Range(0, 10)] 
         public float jumpForce = 1f;
         
         [Range(0, 1)] 

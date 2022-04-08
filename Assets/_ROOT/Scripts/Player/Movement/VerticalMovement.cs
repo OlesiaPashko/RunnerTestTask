@@ -1,8 +1,5 @@
 namespace Runner.Player.Movement
 {
-    using System;
-    using System.Collections;
-    using System.Collections.Generic;
     using Settings;
     using UnityEngine;
     using Zenject;
@@ -10,7 +7,7 @@ namespace Runner.Player.Movement
     public class VerticalMovement : MonoBehaviour
     {
         [Inject]
-        public IInputProvider InputProvider { get; set; }
+        public IMovementStateProvider MovementStateProvider { get; set; }
 
         [Inject]
         public MovementSettings MovementSettings { get; set; }
@@ -20,10 +17,10 @@ namespace Runner.Player.Movement
 
         private void Start()
         {
-            InputProvider.OnButtonClicked += MoveVertical;
+            MovementStateProvider.Jump += Jump;
         }
 
-        private void MoveVertical()
+        private void Jump()
         {
             var force = MovementSettings.jumpForce;
 
@@ -32,13 +29,9 @@ namespace Runner.Player.Movement
 
         private void OnDestroy()
         {
-            InputProvider.OnButtonClicked -= MoveVertical;
+            MovementStateProvider.Jump -= Jump;
         }
     }
 
-    public enum VerticalState
-    {
-        Bottom,
-        Up
-    }
+    
 }
