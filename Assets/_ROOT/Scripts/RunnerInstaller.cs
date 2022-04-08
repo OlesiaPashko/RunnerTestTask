@@ -20,7 +20,7 @@
             Container.Bind<CoroutineProvider>().FromComponentInHierarchy().AsSingle();
             Container.BindInterfacesAndSelfTo<InputProvider>().FromComponentInHierarchy().AsSingle();
             Container.BindInterfacesAndSelfTo<PlayerFactory>().AsSingle();
-            Container.BindInterfacesAndSelfTo<MovementStateProvider>().AsSingle();
+            Container.Bind<IGravitySwitcher>().To<GravitySwitcher>().AsSingle();
 
             InstallSettings();
             DeclareSignals();

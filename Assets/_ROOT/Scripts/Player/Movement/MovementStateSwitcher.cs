@@ -1,7 +1,5 @@
 namespace Runner.Player.Movement
 {
-    using System;
-    using System.Collections;
     using Input;
     using Settings;
     using UnityEngine;
@@ -16,26 +14,27 @@ namespace Runner.Player.Movement
     public interface IMovementStateProvider
     {
         MovementState MovementState { get; }
-        event Action Jump;
     }
     
-    public class MovementStateProvider : IMovementStateProvider, IInitializable
+    public class MovementStateSwitcher : MonoBehaviour, IMovementStateProvider
     {
         [Inject]
         public IInputProvider InputProvider { get; set; }
 
         [Inject]
-        public MovementSettings MovementSettings { get; set; }
+        public IGravitySwitcher GravitySwitcher { get; set; }
 
         [Inject]
-        public CoroutineProvider CoroutineProvider { get; set; }
+        public MovementSettings MovementSettings { get; set; }
         
         public MovementState MovementState { get; private set; }
-        public event Action Jump;
+
+        [SerializeField] 
+        private VerticalMovement verticalMovement;
 
         private float lastClickTime;
 
-        public void Initialize()
+        private void Start()
         {
             InputProvider.OnButtonClicked += OnButtonClicked;
         }
@@ -69,7 +68,7 @@ namespace Runner.Player.Movement
             }
             else
             {
-                Jump?.Invoke();
+                verticalMovement.Jump();
             }
         }
 
@@ -81,13 +80,7 @@ namespace Runner.Player.Movement
             }
 
             MovementState = state;
-            SwitchGravity();
-        }
-
-        private void SwitchGravity()
-        {
-            var gravity = Physics.gravity;
-            Physics.gravity = new Vector3(gravity.x, -gravity.y, gravity.z);
+            GravitySwitcher.Switch();
         }
     }
 }
