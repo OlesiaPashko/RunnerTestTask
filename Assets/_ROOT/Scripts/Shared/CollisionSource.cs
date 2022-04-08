@@ -1,4 +1,4 @@
-namespace Runner.Area
+namespace Runner.Shared
 {
     using System;
     using UnityEngine;

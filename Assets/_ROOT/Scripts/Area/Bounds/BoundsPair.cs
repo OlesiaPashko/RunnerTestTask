@@ -1,6 +1,7 @@
 namespace Runner.Area
 {
     using System;
+    using Shared;
     using UnityEngine;
 
     public class BoundsPair : MonoBehaviour

@@ -1,6 +1,7 @@
 ﻿namespace Runner
 {
     using Area;
+    using Area.Obstacles;
     using GameFlow;
     using GameFlow.Commands;
     using Player;
@@ -21,6 +22,7 @@
             Container.Bind<CoroutineProvider>().FromComponentInHierarchy().AsSingle();
             Container.BindInterfacesAndSelfTo<InputProvider>().FromComponentInHierarchy().AsSingle();
             Container.BindInterfacesAndSelfTo<PlayerFactory>().AsSingle();
+            Container.BindInterfacesAndSelfTo<ObstacleFactory>().AsSingle();
             Container.Bind<IGravitySwitcher>().To<GravitySwitcher>().AsSingle();
             Container.Bind<IPlayerInstanceProvider>().To<PlayerInstanceProvider>().AsSingle();
             Container.BindInterfacesAndSelfTo<ScoreCounter>().AsSingle();
@@ -68,6 +70,10 @@
                 .NonLazy();
             
             Container.Bind<MovementSettings>().FromScriptableObjectResource(SettingsPath)
+                .AsSingle()
+                .NonLazy();
+            
+            Container.Bind<ObstacleSettings>().FromScriptableObjectResource(SettingsPath)
                 .AsSingle()
                 .NonLazy();
         }

@@ -1,5 +1,6 @@
 namespace Runner.Area
 {
+    using Obstacles;
     using Player;
     using Settings;
     using UnityEngine;
@@ -15,6 +16,9 @@ namespace Runner.Area
 
         [Inject]
         public PlayerFactory PlayerFactory { get; set; }
+        
+        [Inject]
+        public ObstacleFactory ObstacleFactory { get; set; }
 
         [Inject]
         public IPlayerInstanceProvider PlayerInstanceProvider { get; set; }
@@ -25,6 +29,7 @@ namespace Runner.Area
         {
             CreateArea();
             CreatePlayer();
+            currentArea.ObstaclesContainer.CreateOneObstacle();
         }
 
         private void CreateArea()
@@ -39,5 +44,7 @@ namespace Runner.Area
             var player = PlayerFactory.Create(playerParent);
             PlayerInstanceProvider.Player = player;
         }
+        
+        
     }
 }
