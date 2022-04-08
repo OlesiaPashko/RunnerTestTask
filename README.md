@@ -1,3 +1,3 @@
 # RunnerTestTask
 
-Mobile game. Runner with randomle generated obstacles
+Mobile game. Runner with randomly generated obstacles
