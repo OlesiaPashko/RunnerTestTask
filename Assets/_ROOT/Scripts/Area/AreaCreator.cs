@@ -43,9 +43,9 @@ namespace Runner.Area
         {
             CreateArea();
             CreatePlayer();
-            foreach (var obstaclesContainer in currentArea.ObstaclesContainers)
+            foreach (var segment in currentArea.Segments)
             {
-                obstaclesContainer.CreateObstacles();
+                segment.CreateObstacles();
             }
         }
 

@@ -6,7 +6,7 @@ namespace Runner.Area
     public class AreaConstructor : MonoBehaviour
     {
         [SerializeField] 
-        private List<BoundsPair> boundPairs;
+        private List<Segment> boundPairs;
 
         private void Start()
         {
@@ -16,13 +16,13 @@ namespace Runner.Area
             }
         }
 
-        private void ReplaceBoundsPair(BoundsPair boundsPair)
+        private void ReplaceBoundsPair(Segment segment)
         {
             var last = GetLast();
-            boundsPair.transform.position = last.transform.position + new Vector3(10, 0);
+            segment.transform.position = last.transform.position + new Vector3(10, 0);
         }
 
-        private BoundsPair GetLast()
+        private Segment GetLast()
         {
             var last = boundPairs[0];
             foreach (var boundPair in boundPairs)

@@ -26,12 +26,25 @@ namespace Runner.Area.Obstacles
                 CreateObstacle();
             }
         }
+        
+        public void ShuffleObstacles()
+        {
+            foreach (var obstacle in obstacles)
+            {
+                SetObstaclePosition(obstacle);
+            }
+        }
+
+        private void SetObstaclePosition(Obstacle obstacle)
+        {
+            var position = obstaclePositionProvider.Get();
+            obstacle.transform.position = position;
+        }
 
         private void CreateObstacle()
         {
             var obstacle = ObstacleFactory.Create(transform);
-            var position = obstaclePositionProvider.Get();
-            obstacle.transform.position = position;
+            SetObstaclePosition(obstacle);
             obstacles.Add(obstacle);
         }
     }

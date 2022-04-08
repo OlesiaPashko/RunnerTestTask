@@ -1,6 +1,5 @@
 namespace Runner.Area
 {
-    using Obstacles;
     using UnityEngine;
 
     public class Area : MonoBehaviour
@@ -11,8 +10,8 @@ namespace Runner.Area
         public PlayerPlaceholder PlayerPlaceholder => playerPlaceholder;
         
         [SerializeField] 
-        private ObstaclesContainer[] obstaclesContainers;
+        private Segment[] segments;
 
-        public ObstaclesContainer[] ObstaclesContainers => obstaclesContainers;
+        public Segment[] Segments => segments;
     }
 }

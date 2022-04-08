@@ -1,12 +1,13 @@
 namespace Runner.Area
 {
     using System;
+    using Obstacles;
     using Shared;
     using UnityEngine;
 
-    public class BoundsPair : MonoBehaviour
+    public class Segment : MonoBehaviour
     {
-        public event Action<BoundsPair> endAchieved; 
+        public event Action<Segment> endAchieved; 
         public SegmentBounds SegmentBounds { get; private set; }
         
         [SerializeField] 
@@ -18,6 +19,8 @@ namespace Runner.Area
         [SerializeField] 
         private CollisionSource collisionSource;
 
+        [SerializeField] 
+        private ObstaclesContainer obstaclesContainer;
         private void Awake()
         {
             SegmentBounds = new SegmentBounds(cellBound.TopLeftPoint, groundBound.BottomRightPoint);
@@ -28,15 +31,21 @@ namespace Runner.Area
             collisionSource.onCollisionEnter += OnCollision;
         }
 
+        public void CreateObstacles()
+        {
+            obstaclesContainer.CreateObstacles();
+        }
+
         private void OnCollision(Collision other)
         {
             endAchieved?.Invoke(this);
+            SegmentBounds = new SegmentBounds(cellBound.TopLeftPoint, groundBound.BottomRightPoint);
+            obstaclesContainer.ShuffleObstacles();
         }
 
         private void OnDestroy()
         {
             collisionSource.onCollisionEnter -= OnCollision;
-            SegmentBounds = new SegmentBounds(cellBound.TopLeftPoint, groundBound.BottomRightPoint);
         }
     }
 

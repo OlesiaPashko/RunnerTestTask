@@ -114,7 +114,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 222c9538e41b4ba38cccb1250cbd8b3c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  boundsPair: {fileID: 6558873710599563537}
+  segment: {fileID: 6558873710599563537}
 --- !u!1 &6558873710599563536
 GameObject:
   m_ObjectHideFlags: 0
@@ -126,7 +126,7 @@ GameObject:
   - component: {fileID: 6558873710599563542}
   - component: {fileID: 6558873710599563537}
   m_Layer: 0
-  m_Name: BoundsPair
+  m_Name: Segment
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -165,6 +165,7 @@ MonoBehaviour:
   groundBound: {fileID: 8088049268873523176}
   cellBound: {fileID: 7805963765900212141}
   collisionSource: {fileID: 1546445258214766408}
+  obstaclesContainer: {fileID: 8202672661040691057}
 --- !u!1001 &6558873710618362829
 PrefabInstance:
   m_ObjectHideFlags: 0
