@@ -8,9 +8,6 @@ namespace Runner.Settings
     {
         [Range(0, 10f)] 
         public float startSpeed = 1f;
-
-        [Range(0, 1)] 
-        public float acceleration = 0.01f;
         
         [FormerlySerializedAs("jumpHeight")] [Range(0, 1)] 
         public float jumpForce = 1f;

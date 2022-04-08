@@ -48,8 +48,6 @@ namespace Runner.Player.Movement
         {
             var newPosition = transform.position + new Vector3(speed, 0);
             rb.MovePosition(newPosition);
-            var acceleration = MovementSettings.acceleration;
-            speed += acceleration;
         }
 
         private bool IsStopped()
