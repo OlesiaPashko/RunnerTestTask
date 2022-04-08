@@ -11,8 +11,8 @@ namespace Runner.Area
         public PlayerPlaceholder PlayerPlaceholder => playerPlaceholder;
         
         [SerializeField] 
-        private ObstaclesContainer obstaclesContainer;
+        private ObstaclesContainer[] obstaclesContainers;
 
-        public ObstaclesContainer ObstaclesContainer => obstaclesContainer;
+        public ObstaclesContainer[] ObstaclesContainers => obstaclesContainers;
     }
 }

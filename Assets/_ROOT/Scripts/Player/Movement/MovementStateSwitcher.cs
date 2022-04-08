@@ -1,5 +1,6 @@
 namespace Runner.Player.Movement
 {
+    using System;
     using Input;
     using Settings;
     using UnityEngine;
@@ -81,6 +82,11 @@ namespace Runner.Player.Movement
 
             MovementState = state;
             GravitySwitcher.Switch();
+        }
+
+        private void OnDestroy()
+        {
+            InputProvider.OnButtonClicked -= OnButtonClicked;
         }
     }
 }

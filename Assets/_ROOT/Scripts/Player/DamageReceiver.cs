@@ -12,11 +12,14 @@ namespace Runner.Player
         [SerializeField] 
         private int health = 100;
 
+        private bool isKilled = false;
+
         public void TakeDamage(int damage)
         {
             health -= damage;
-            if (health <= 0)
+            if (health <= 0 && !isKilled)
             {
+                isKilled = true;
                 SignalBus.Fire<LevelFailed>();
             }
         }

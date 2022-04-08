@@ -22,7 +22,7 @@
             Container.BindInterfacesAndSelfTo<InputProvider>().FromComponentInHierarchy().AsSingle();
             Container.BindInterfacesAndSelfTo<PlayerFactory>().AsSingle();
             Container.BindInterfacesAndSelfTo<ObstacleFactory>().AsSingle();
-            Container.Bind<IGravitySwitcher>().To<GravitySwitcher>().AsSingle();
+            Container.BindInterfacesAndSelfTo<GravitySwitcher>().AsSingle();
             Container.Bind<IPlayerInstanceProvider>().To<PlayerInstanceProvider>().AsSingle();
             Container.BindInterfacesAndSelfTo<ScoreCounter>().AsSingle();
 

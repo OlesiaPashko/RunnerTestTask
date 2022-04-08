@@ -43,7 +43,10 @@ namespace Runner.Area
         {
             CreateArea();
             CreatePlayer();
-            currentArea.ObstaclesContainer.CreateObstacles();
+            foreach (var obstaclesContainer in currentArea.ObstaclesContainers)
+            {
+                obstaclesContainer.CreateObstacles();
+            }
         }
 
         private void CreateArea()
