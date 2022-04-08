@@ -728,6 +728,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Scores
       objectReference: {fileID: 0}
+    - target: {fileID: 3768587040313621654, guid: 8b9e4867a825a064aa0353d646e7c388,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 250
+      objectReference: {fileID: 0}
     - target: {fileID: 4929712663059992102, guid: 8b9e4867a825a064aa0353d646e7c388,
         type: 3}
       propertyPath: m_AnchorMin.y
@@ -911,7 +916,7 @@ PrefabInstance:
     - target: {fileID: 8538470121242164342, guid: 8b9e4867a825a064aa0353d646e7c388,
         type: 3}
       propertyPath: m_textInfo.lineCount
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8538470121242164342, guid: 8b9e4867a825a064aa0353d646e7c388,
         type: 3}
